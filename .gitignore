@@ -1,0 +1,20 @@
+# PROJECT SPECIFIC
+.tmp/*
+*/tmp/*
+*/.terraform/
+*/.decrypted/
+*/.terraform.lock.hcl
+
+# IDEA
+.idea
+*.iml
+
+# EMACS
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
