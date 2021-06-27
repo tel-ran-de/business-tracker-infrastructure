@@ -4,14 +4,14 @@ module "ecr" {
   name = var.service_name
 }
 
-output "text_encoder_ecr_arn" {
+output "fargate_service_ecr_arn" {
   value = module.ecr.arn
 }
 
-output "text_encoder_ecr_id" {
+output "fargate_service_ecr_id" {
   value = module.ecr.registry_id
 }
 
-output "text_encoder_ecr_url" {
+output "fargate_service_ecr_url" {
   value = module.ecr.repository_url
 }

@@ -11,7 +11,7 @@ module "db" {
   subnet_ids = [module.vpc.private_subnets.0, module.vpc.private_subnets.1]
   dns_zone_id = aws_route53_zone.internal.id
 
-  db_name = "abcdoc_${var.stage}" # rails convention, eg: abcdoc_production
+  db_name = "java_server_${var.stage}" # rails convention, eg: abcdoc_production
 
   SECRET_db_username = var.SECRET_base_db_username
   SECRET_db_password = var.SECRET_base_db_password
