@@ -46,7 +46,8 @@ resource "aws_ecs_service" "fargate_service" {
 
   network_configuration {
     security_groups = concat([
-      aws_security_group.fargate_service.id], var.extra_fargate_service_security_group_ids)
+      aws_security_group.fargate_service.id,
+      var.db_client_sg_id])
     subnets = var.private_subnet_ids
     assign_public_ip = false
   }

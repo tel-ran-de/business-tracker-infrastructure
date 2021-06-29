@@ -1,10 +1,16 @@
 variable "prefix" {}
 variable "service_name" {}
 
+variable "dns_names" {}
+variable "dns_zone_id" {}
+
 variable "aws_region" {}
 variable "vpc_id" {}
 variable "vpc_cidr_block" {}
 variable "private_subnet_ids" {
+  type = list(string)
+}
+variable "public_subnet_ids" {
   type = list(string)
 }
 
@@ -22,4 +28,6 @@ variable "fargate_service_ecs_role_arn" {}
 variable "extra_fargate_service_security_group_ids" {
   type = list(string)
 }
+
+variable "db_client_sg_id" {}
 

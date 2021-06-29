@@ -1,15 +1,15 @@
 resource "aws_alb" "fargate_service" {
-  name = substr("${local.full_prefix}-private-alb", 0, 32)
-  internal = true
+  name = substr("${local.full_prefix}-public-alb", 0, 32)
+  internal = false
 
   security_groups = [
     aws_security_group.public_lb.id
   ]
-  subnets = var.private_subnet_ids
+  subnets = var.public_subnet_ids
   idle_timeout = 60
 
   tags = {
-    Name = "${local.full_prefix}-private-alb"
+    Name = "${local.full_prefix}-public-alb"
   }
 }
 
@@ -22,11 +22,11 @@ resource "aws_alb_target_group" "fargate_service" {
 
   health_check {
     healthy_threshold = 3
-    interval = 30
+    interval = 90
     protocol = "HTTP"
     matcher = "200"
     timeout = "5"
-    path = "/ping"
+    path = "/"
     unhealthy_threshold = 3
   }
 }
